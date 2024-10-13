@@ -40,9 +40,15 @@ class BaseVacancy(ABC):
         pass
 
     @classmethod
+    @abstractmethod
     def converting_dict_to_class(cls, vacancies: list[dict]) -> list:
         pass
 
     @abstractmethod
     def to_json(self) -> dict:
+        pass
+
+    @classmethod
+    @abstractmethod
+    def create_from_file_info(cls, vacancies: list[dict]) -> list:
         pass
