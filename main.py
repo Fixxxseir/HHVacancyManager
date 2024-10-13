@@ -69,9 +69,12 @@ def main():
         elif filter_word == "3":
             # Код для обработки четвертого варианта
             vacancy_name = input("Введите слово для поиска: ").lower()
-            for vac in save_json.get_vacancy_by_vacancy_name(vacancy_name):
+            vacancies_info = save_json.get_vacancy_by_vacancy_name(vacancy_name)
+            vacancies = Vacancy.create_from_file_info(vacancies_info)
+            for vac in vacancies:
                 print(vac)
                 print()
+
         elif filter_word == "4":
             # Код для обработки пятого варианта
             vacancy = Vacancy(
