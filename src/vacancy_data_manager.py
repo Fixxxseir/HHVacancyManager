@@ -1,5 +1,6 @@
 import json
 import os
+from typing import Dict
 
 from config import DATA_PATH
 from src.base_vacancy_data_manager import VacancySaver
@@ -51,7 +52,7 @@ class JSONSaver(VacancySaver):
                 list_old.append(vac.to_json())
                 self.__write_to_file(list_old)
 
-    def get_vacancy_by_vacancy_name(self, word: str) -> list[Vacancy]:
+    def get_vacancy_by_vacancy_name(self, word: str) -> list[Dict]:
         """Возвращает список вакансий по ключевому слову в названии вакансии"""
         found_vacancies = []
 
@@ -59,7 +60,7 @@ class JSONSaver(VacancySaver):
             if word in vac.get("name").lower():
                 found_vacancies.append(vac)
 
-        return Vacancy.converting_dict_to_class(found_vacancies)
+        return found_vacancies
 
     def delete_vacancy(self, word: str) -> None:
         """Удаляет вакансию из файла"""
