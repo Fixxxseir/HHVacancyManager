@@ -112,6 +112,13 @@ class Vacancy(BaseVacancy):
             "responsibility": self.responsibility,
         }
 
+    @classmethod
+    def create_from_file_info(cls, vacancies: list[dict]) -> list:
+        """Класс метод забирающий экземпляры Vacancy из списка словарей
+         который подходит по структуре класса Vacancy"""
+
+        return [cls(**vac) for vac in vacancies]
+
     # def avg_salary(self):
     # 	self.__salary_validation()
     # 	if self.salary_from and self.salary_to:

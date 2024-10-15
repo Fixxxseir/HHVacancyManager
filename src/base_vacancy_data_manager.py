@@ -6,14 +6,6 @@ from src.vacancy import Vacancy
 class VacancySaver(ABC):
 
     @abstractmethod
-    def __read_file(self):
-        pass
-
-    @abstractmethod
-    def __write_to_file(self, vacancies):
-        pass
-
-    @abstractmethod
     def add_vacancy(self, vacancy: Vacancy) -> None:
         """Добавляет вакансию объекта Vacancy"""
         pass
